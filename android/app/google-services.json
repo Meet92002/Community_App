@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "433392051480",
+    "project_id": "community-fe3fc",
+    "storage_bucket": "community-fe3fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433392051480:android:f11cab76468fddc38d2a6d",
+        "android_client_info": {
+          "package_name": "com.example.community_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433392051480-90ict76k2mdap0jkff0j1albnq32kh00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDQy0qsejSH6TFbSpi7zrDhB-avFGwzYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433392051480-90ict76k2mdap0jkff0j1albnq32kh00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
