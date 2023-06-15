@@ -1,0 +1,116 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+
+        <div class="d-md-flex justify-content-md-end" style="padding-bottom: 20px">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-target="#staticBackdrop">
+                <i class="bi bi-plus-circle"></i> &nbsp;&nbsp;CREATE MEMBER
+            </button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/dashboard/AddOther">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">schoolStudies:</label>
+                                <input type="text" class="form-control shadow-none" id="schoolStudies" name="schoolStudies" placeholder="Enter schoolStudies"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">schoolYear:</label>
+                                <input type="text" class="form-control shadow-none" id="schoolYear" name="schoolYear" placeholder="Enter schoolYear"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">collegeStudies:</label>
+                                <input type="text" class="form-control shadow-none" id="collegeStudies" name="collegeStudies" placeholder="Enter collegeStudies"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">collegeYear:</label>
+                                <input type="text" class="form-control shadow-none" id="collegeYear" name="collegeYear" placeholder="Enter collegeYear"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">masterStudies:</label>
+                                <input type="text" class="form-control shadow-none" id="masterStudies" name="masterStudies" placeholder="Enter masterStudies"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">masterYear:</label>
+                                <input type="text" class="form-control shadow-none" id="masterYear" name="masterYear" placeholder="Enter masterYear"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">companyName:</label>
+                                <input type="text" class="form-control shadow-none" id="companyName" name="companyName" placeholder="Enter companyName"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">presentPost:</label>
+                                <input type="text" class="form-control shadow-none" id="presentPost" name="presentPost" placeholder="Enter presentPost"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">experiance:</label>
+                                <input type="text" class="form-control shadow-none" id="experiance" name="experiance" placeholder="Enter experiance"  />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Add Member</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section dashboard">
+            <div class="row">
+                <div class="shadow bg-white p-4 rounded">
+                    <div>
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">School Studies</th>
+                                    <th scope="col">Collage Studies</th>
+                                    <th scope="col">Company Name</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(Data.length !==0) { %>
+                                    <% Data.forEach((val,index)=> { %>
+                                        <tr>
+                                            <td scope="row" style="font-size: small;"><a href="#">#<%= index + 1 %></a></td>
+                                            <td style="font-size: small;">
+                                                <%= val.schoolStudies %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.masterStudies %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.companyName %>
+                                            </td>
+                                            <td>
+                                                <a href="/dashboard/deleteOther/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-trash text-danger"></i></a>
+                                                <a href="/dashboard/editOther/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-pencil-square"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

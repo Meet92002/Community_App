@@ -1,0 +1,112 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+
+        <div class="d-md-flex justify-content-md-end" style="padding-bottom: 20px">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-target="#staticBackdrop">
+                <i class="bi bi-plus-circle"></i> &nbsp;&nbsp;CREATE MEMBER
+            </button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/dashboard/AddFamily">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">fatherName:</label>
+                                <input type="text" class="form-control shadow-none" id="name" name="fatherName" placeholder="Enter fatherName"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">motherName:</label>
+                                <input type="text" class="form-control shadow-none" id="castName" name="motherName" placeholder="Enter motherName"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">fatherBusiness:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="fatherBusiness" placeholder="Enter fatherBusiness"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">fatherMobileNo.:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="fatherMobileNo" placeholder="Enter fatherMobileNo"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">elderSister:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="elderSister" placeholder="Enter elderSister"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">elderBrother:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="elderBrother" placeholder="Enter elderBrother"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">maternal:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="maternal" placeholder="Enter maternal"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">nativePlace:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="nativePlace" placeholder="Enter nativePlace"  />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Add Member</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section dashboard">
+            <div class="row">
+                <div class="shadow bg-white p-4 rounded">
+                    <div>
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">Father Name</th>
+                                    <th scope="col">Mother Name</th>
+                                    <th scope="col">Mobile No.</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(Data.length !==0) { %>
+                                    <% Data.forEach((val,index)=> { %>
+                                        <tr>
+                                            <td scope="row" style="font-size: small;"><a href="#">#<%= index + 1 %></a></td>
+                                            <td style="font-size: small;">
+                                                <%= val.fatherName %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.motherName %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.fatherMobileNo %>
+                                            </td>
+                                            <td>
+                                                <a href="/dashboard/deleteFamily/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-trash text-danger"></i></a>
+                                                <a href="/dashboard/editFamily/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-pencil-square"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

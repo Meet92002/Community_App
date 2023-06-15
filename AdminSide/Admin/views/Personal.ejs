@@ -1,0 +1,141 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+
+        <div class="d-md-flex justify-content-md-end" style="padding-bottom: 20px">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-target="#staticBackdrop">
+                <i class="bi bi-plus-circle"></i> &nbsp;&nbsp;CREATE MEMBER
+            </button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/dashboard/AddPersonal">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">FullName:</label>
+                                <input type="text" class="form-control shadow-none" id="name" name="fullName" placeholder="Enter Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Cast Name:</label>
+                                <input type="text" class="form-control shadow-none" id="castName" name="castName" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Age:</label>
+                                <input type="text" class="form-control shadow-none" id="Age" name="age" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Gender:</label>
+                                <input type="text" class="form-control shadow-none" id="Gender" name="gender" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Occupation:</label>
+                                <input type="text" class="form-control shadow-none" id="Occupation" name="occupation" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">DOB:</label>
+                                <input type="text" class="form-control shadow-none" id="DOB" name="dob" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Height:</label>
+                                <input type="text" class="form-control shadow-none" id="Height" name="height" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Weight:</label>
+                                <input type="text" class="form-control shadow-none" id="Weight" name="weight" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">BitrhPlace:</label>
+                                <input type="text" class="form-control shadow-none" id="BitrhPlace" name="birthPlace" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control shadow-none" id="Email" name="email" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Address:</label>
+                                <input type="text" class="form-control shadow-none" id="Address" name="address" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Intrest:</label>
+                                <input type="text" class="form-control shadow-none" id="Intrest" name="intrest" placeholder="Enter Cast Name"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Mobile No.:</label>
+                                <input type="text" class="form-control shadow-none" id="mobileNo" name="mobileNo" placeholder="Enter Mobile No."  />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Add Member</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section dashboard">
+            <div class="row">
+                <div class="shadow bg-white p-4 rounded">
+                    <div>
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Cast</th>
+                                    <th scope="col">Mobile No.</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Occupation</th>
+                                    <th scope="col">DOB</th>
+                                    <th scope="col">Height</th>
+                                    <th scope="col">Weight</th>
+                                    <th scope="col">BitrhPlace</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Intrest</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(Data.length !==0) { %>
+                                    <% Data.forEach((val,index)=> { %>
+                                        <tr>
+                                            <td scope="row" style="font-size: small;"><a href="#">#<%= index + 1 %></a></td>
+                                            <td style="font-size: small;">
+                                                <%= val.fullName %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.castName %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.mobileNo %>
+                                            </td>
+                                            <td>
+                                                <a href="/dashboard/deletePersonal/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-trash text-danger"></i></a>
+                                                <a href="/dashboard/editPersonal/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-pencil-square"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

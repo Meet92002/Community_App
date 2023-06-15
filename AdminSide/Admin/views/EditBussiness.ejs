@@ -1,0 +1,67 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                    <li class="breadcrumb-item ">Bussiness</li>
+                    <li class="breadcrumb-item active">Edit Bussiness</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="row justify-content-center">
+                <div class="shadow bg-white p-4 rounded w-50 ">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/dashboard/editBusiness">
+                                    <input type="hidden" name="id" value="<%= editdata._id %>" >  
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">BusinessName:</label>
+                                        <input type="text" class="form-control shadow-none" id="businessName" name="businessName" placeholder="Enter businessName" value="<%= editdata.businessName %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Occupation</label>
+                                        <input type="text" class="form-control shadow-none" id="occupation" name="occupation" placeholder="Enter occupation"  value="<%= editdata.occupation %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">BusinessType:</label>
+                                        <input type="text" class="form-control shadow-none" id="businessType" name="businessType" placeholder="Enter businessType"  value="<%= editdata.businessType %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">MobileNo:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="mobileNo" placeholder="Enter mobileNo"  value="<%= editdata.mobileNo %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">BusinessEmail:</label>
+                                        <input type="text" class="form-control shadow-none" id="businessEmail" name="businessEmail" placeholder="Enter businessEmail"   value="<%= editdata.businessEmail %>"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Address:</label>
+                                        <input type="text" class="form-control shadow-none" id="address" name="address" placeholder="Enter address"  value="<%= editdata.address %>" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Add Member</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

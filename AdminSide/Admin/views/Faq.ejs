@@ -1,0 +1,84 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>FAQ's</h1>
+        </div>
+        <!-- End Page Title -->
+
+        <!-- <div class="d-md-flex justify-content-md-end" style="padding-bottom: 20px">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-target="#staticBackdrop">
+                <i class="bi bi-plus-circle"></i> &nbsp;&nbsp;CREATE FAQ's
+            </button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New FAQ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/dashboard/insertData">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">FAQ Question:</label>
+                                <input type="text" class="form-control shadow-none" id="faqTitle" name="faqTitle" placeholder="Enter Question" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">FAQ Answer:</label>
+                                <input type="text" class="form-control shadow-none" id="faqSubtitle" name="faqSubtitle" placeholder="Enter Answer" required />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Add FAQ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <section class="section dashboard">
+            <div class="row">
+                <div class="shadow bg-white p-4 rounded">
+                    <div>
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr No.</th>
+                                    <th scope="col">Question</th>
+                                    <th scope="col">Answer</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(Data.length !==0) { %>
+                                    <% Data.forEach((val,index)=> { %>
+                                        <tr>
+                                            <td scope="row" style="font-size: small;"><a href="#">#<%= index + 1 %></a></td>
+                                            <td style="font-size: small;">
+                                                <%= val.faqTitle %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.faqSubtitle %>
+                                            </td>
+                                            <td>
+                                                <a href="/dashboard/delete/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-trash text-danger"></i></a>
+                                                <a href="/dashboard/edit/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-pencil-square"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

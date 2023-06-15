@@ -1,0 +1,65 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="row">
+                <div class="shadow bg-white p-4 rounded">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/dashboard/editFamily">
+                                    <input type="hidden" name="id" value="<%= editdata._id %>" >  
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">fatherName:</label>
+                                        <input type="text" class="form-control shadow-none" id="name" name="fatherName" placeholder="Enter fatherName"  value="<%= editdata.fatherName %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">motherName:</label>
+                                        <input type="text" class="form-control shadow-none" id="castName" name="motherName" placeholder="Enter motherName" value="<%= editdata.motherName %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">fatherBusiness:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="fatherBusiness" placeholder="Enter fatherBusiness" value="<%= editdata.fatherBusiness %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">fatherMobileNo.:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="fatherMobileNo" placeholder="Enter fatherMobileNo" value="<%= editdata.fatherMobileNo %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">elderSister:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="elderSister" placeholder="Enter elderSister" value="<%= editdata.elderSister %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">elderBrother:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="elderBrother" placeholder="Enter elderBrother" value="<%= editdata.elderBrother %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">maternal:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="maternal" placeholder="Enter maternal" value="<%= editdata.maternal %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">nativePlace:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="nativePlace" placeholder="Enter nativePlace" value="<%= editdata.nativePlace %>"  />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Add Member</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

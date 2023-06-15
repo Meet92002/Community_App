@@ -1,0 +1,79 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                    <li class="breadcrumb-item ">Other</li>
+                    <li class="breadcrumb-item active">Edit Other</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="row justify-content-center">
+                <div class="shadow bg-white p-4 rounded w-50 ">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/dashboard/editother">
+                                    <input type="hidden" name="id" value="<%= editdata._id %>"  >
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">schoolStudies:</label>
+                                        <input type="text" class="form-control shadow-none" id="schoolStudies" name="schoolStudies" placeholder="Enter schoolStudies" value="<%= editdata.schoolStudies %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">schoolYear:</label>
+                                        <input type="text" class="form-control shadow-none" id="schoolYear" name="schoolYear" placeholder="Enter schoolYear"  value="<%= editdata.schoolYear %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">collegeStudies:</label>
+                                        <input type="text" class="form-control shadow-none" id="collegeStudies" name="collegeStudies" placeholder="Enter collegeStudies"   value="<%= editdata.collegeStudies %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">collegeYear:</label>
+                                        <input type="text" class="form-control shadow-none" id="collegeYear" name="collegeYear" placeholder="Enter collegeYear" value="<%= editdata.collegeYear %>"   />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">masterStudies:</label>
+                                        <input type="text" class="form-control shadow-none" id="masterStudies" name="masterStudies" placeholder="Enter masterStudies"  value="<%= editdata.masterStudies %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">masterYear:</label>
+                                        <input type="text" class="form-control shadow-none" id="masterYear" name="masterYear" placeholder="Enter masterYear"  value="<%= editdata.masterYear %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">companyName:</label>
+                                        <input type="text" class="form-control shadow-none" id="companyName" name="companyName" placeholder="Enter companyName" value="<%= editdata.companyName %>"   />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">presentPost:</label>
+                                        <input type="text" class="form-control shadow-none" id="presentPost" name="presentPost" placeholder="Enter presentPost" value="<%= editdata.presentPost %>"   />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">experiance:</label>
+                                        <input type="text" class="form-control shadow-none" id="experiance" name="experiance" placeholder="Enter experiance"  value="<%= editdata.experiance %>"  />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Add Member</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

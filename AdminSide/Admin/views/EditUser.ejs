@@ -1,0 +1,58 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                    <li class="breadcrumb-item ">User</li>
+                    <li class="breadcrumb-item active">Edit User</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="row justify-content-center">
+                <div class="shadow bg-white p-4 rounded w-50 ">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="AddModalLabel">Add User</h1>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/dashboard/UpdateData">
+                                    <div class="mt-3">
+                                        <div>
+                                            <input type="hidden" class="form-control" id="id" name="id" value="<%= editdata.id %>" >
+                                        </div>
+                                        <div>
+                                            <label for="name" class="mb-1">Name*</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Enter Name" value="<%= editdata.name %>" >
+                                        </div>
+                                        <div class="my-3">
+                                            <label for="castName" class="mb-1">Cast Name*</label>
+                                            <input type="text" class="form-control" id="castName"
+                                                name="castName" placeholder="Enter Cast" value="<%= editdata.castName %>" >
+                                        </div>
+                                        <div class="my-3">
+                                            <label for="mobileNo" class="mb-1">Mobile No.*</label>
+                                            <input type="tel" class="form-control" id="mobileNo"
+                                                name="mobileNo" placeholder="Enter Mobile No." value="<%= editdata.mobileNo %>" >
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+    <%- include('Footer') %>

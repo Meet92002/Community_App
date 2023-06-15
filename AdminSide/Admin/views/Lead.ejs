@@ -1,0 +1,136 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>My Leads</h1>
+        </div>
+        <!-- End Page Title -->
+
+        <div class="d-md-flex justify-content-md-end" style="padding-bottom: 20px">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-target="#staticBackdrop">
+                <i class="bi bi-plus-circle"></i> &nbsp;&nbsp;CREATE LEADS
+            </button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Leads</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/dashboard/insertData">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Date:</label>
+                                <input type="date" class="form-control shadow-none" id="leadDate" name="leadDate" placeholder="Enter Date" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control shadow-none" id="leadTitle" name="leadTitle" placeholder="Enter Title" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Subtitle:</label>
+                                <input type="text" class="form-control shadow-none" id="leadSubtitle" name="leadSubtitle" placeholder="Enter Subtitle" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Category:</label>
+                                <input type="text" class="form-control shadow-none" id="leadCategory" name="leadCategory" placeholder="Enter Category" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Description:</label>
+                                <input type="text" class="form-control shadow-none" id="leadDescription" name="leadDescription" placeholder="Enter Description" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Member Need:</label>
+                                <input type="text" class="form-control shadow-none" id="memberNeed" name="memberNeed" placeholder="Enter Need" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Member Name:</label>
+                                <input type="text" class="form-control shadow-none" id="leadMemberName" name="leadMemberName" placeholder="Enter Name" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Lead Type:</label>
+                                <input type="text" class="form-control shadow-none" id="leadButtonType" name="leadButtonType" placeholder="Enter Type" required />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Add FAQ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section dashboard">
+            <div class="row">
+                <div class="shadow bg-white p-4 rounded">
+                    <div>
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="font-size: small;">Sr No.</th>
+                                    <th scope="col" style="font-size: small;">ID</th>
+                                    <th scope="col" style="font-size: small;">Date</th>
+                                    <th scope="col" style="font-size: small;">Title</th>
+                                    <th scope="col" style="font-size: small;">Subtitle</th>
+                                    <th scope="col" style="font-size: small;">Category</th>
+                                    <th scope="col" style="font-size: small;">Description</th>
+                                    <th scope="col" style="font-size: small;">Member Need</th>
+                                    <th scope="col" style="font-size: small;">Member Name</th>
+                                    <th scope="col" style="font-size: small;">Type</th>
+                                    <th scope="col" style="font-size: small;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(Data.length !==0) { %>
+                                    <% Data.forEach((val,index)=> { %>
+                                        <tr>
+                                            <td scope="row" style="font-size: small;"><a href="#">#<%= index + 1 %></a></td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadId %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadDate %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadTitle %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadSubtitle %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadCategory %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadDescription %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.memberNeed %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadMemberName %>
+                                            </td>
+                                            <td style="font-size: small;">
+                                                <%= val.leadButtonType %>
+                                            </td>
+                                            <td>
+                                                <a href="/dashboard/delete/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-trash text-danger"></i></a>
+                                                <a href="/dashboard/edit/<%= val._id %>" class="m-1"><i
+                                                        class="bi bi-pencil-square"></i></a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>

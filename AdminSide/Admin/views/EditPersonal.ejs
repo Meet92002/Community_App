@@ -1,0 +1,95 @@
+<%- include('Header') %>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Member Directory</h1>
+        </div>
+        <!-- End Page Title -->
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                    <li class="breadcrumb-item ">Personal</li>
+                    <li class="breadcrumb-item active">Edit Personal</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="row justify-content-center">
+                <div class="shadow bg-white p-4 rounded w-50 ">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="/dashboard/editpersonal">
+                                    <input type="hidden" name="id" value="<%= editdata._id %>">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">FullName:</label>
+                                        <input type="text" class="form-control shadow-none" id="name" name="fullName" placeholder="Enter Name" value="<%= editdata.fullName %>"  />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Cast Name:</label>
+                                        <input type="text" class="form-control shadow-none" id="castName" name="castName" placeholder="Enter Cast Name"  value="<%= editdata.castName %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Age:</label>
+                                        <input type="text" class="form-control shadow-none" id="Age" name="age" placeholder="Enter Cast Name"  value="<%= editdata.age %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Gender:</label>
+                                        <input type="text" class="form-control shadow-none" id="Gender" name="gender" placeholder="Enter Cast Name"  value="<%= editdata.gender %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Occupation:</label>
+                                        <input type="text" class="form-control shadow-none" id="Occupation" name="occupation" placeholder="Enter Cast Name"  value="<%= editdata.occupation %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">DOB:</label>
+                                        <input type="text" class="form-control shadow-none" id="DOB" name="dob" placeholder="Enter Cast Name"  value="<%= editdata.dob %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Height:</label>
+                                        <input type="text" class="form-control shadow-none" id="Height" name="height" placeholder="Enter Cast Name"  value="<%= editdata.height %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Weight:</label>
+                                        <input type="text" class="form-control shadow-none" id="Weight" name="weight" placeholder="Enter Cast Name"  value="<%= editdata.weight %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">BitrhPlace:</label>
+                                        <input type="text" class="form-control shadow-none" id="BitrhPlace" name="birthPlace" placeholder="Enter Cast Name"  value="<%= editdata.   birthPlace %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Email:</label>
+                                        <input type="text" class="form-control shadow-none" id="Email" name="email" placeholder="Enter Cast Name"  value="<%= editdata.email %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Address:</label>
+                                        <input type="text" class="form-control shadow-none" id="Address" name="address" placeholder="Enter Cast Name"  value="<%= editdata.address %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Intrest:</label>
+                                        <input type="text" class="form-control shadow-none" id="Intrest" name="intrest" placeholder="Enter Cast Name"  value="<%= editdata.intrest %>" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Mobile No.:</label>
+                                        <input type="text" class="form-control shadow-none" id="mobileNo" name="mobileNo" placeholder="Enter Mobile No."  value="<%= editdata.mobileNo %>" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Add Member</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+
+    <%- include('Footer') %>
